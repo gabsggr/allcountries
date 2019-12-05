@@ -1,0 +1,151 @@
+body, html {
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    background-color: #1a1a1a;
+    margin: 0;
+    height: 100%;
+	cursor: crosshair;
+	overflow-y: hidden;
+}
+
+em {
+    font-weight: bolder;
+    font-style: normal;
+}
+
+#menu {
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+}
+
+#img-logo {
+    height: 70px;
+    position: absolute;
+	margin: 20px auto 0 35px;
+}
+
+
+#navbar {
+    display: block;
+    float: right;
+	margin-top: 10px;
+}
+
+#navbar ul{
+    list-style-type: none;
+    display: inline-flex;    
+    margin-right: 20px;
+    margin-top: 20px;
+    position: relative;
+}
+
+#navbar li a {    
+    text-decoration: none;
+    color: rgb(24, 24, 24);
+    margin-right: 20px;
+    right: 0;
+    padding: 0 10px 5px 0;
+    font-size: 20px;
+	color: white;
+}
+
+
+#navbar li a:hover  {
+	color: #80cecb;
+}
+
+#navbar li:hover {	
+	transform: scale(1.1);
+	transition: transform .3s;
+}	
+
+#lista-de-paises {
+    list-style-type: none;
+    overflow-y: scroll;
+	float: left;
+    width: 40%;
+    height:81%;
+    padding: 10px 0 0 0 ;
+    margin: 0;
+	font-size: 40px;
+	position: relative;
+	left: 3%;
+	top: 8%;
+	font-family: 'Bebas Neue', sans-serif; 
+	letter-spacing: 4px; 
+}
+
+#lista-de-paises::-webkit-scrollbar { 
+    display: none; 
+} 
+
+#lista-de-paises li{
+    padding: 25px 0 10px 30px;
+	overflow-y: hidden;
+	opacity: 0.8;
+}
+
+#lista-de-paises li:hover {
+	transform: scale(1.1);
+	transition: transform .5s;
+	opacity: 1;
+	margin-left: 5px;
+}
+
+#lista-de-paises li a {
+    text-decoration: none;
+	color: white;    
+}
+
+#lista-de-dados {
+    width: 50%;
+    float:right;
+    list-style-type: none;
+    margin-top: 25px;
+	position: relative;
+	top: 5%;
+	padding: 0 0 20px 7%; 
+}
+
+#lista-de-dados li {
+	padding: 10px 10px 0 0;
+	color: white;
+    font-family: 'Quicksand', sans-serif;
+    line-height: 200%;
+	letter-spacing: 2px;
+	font-size: 17px;
+}
+
+#bandeira {
+	position: relative;
+    height: 300px;
+    margin: 25px auto 15px auto;
+}
+
+#info {
+	display: block;
+}
+
+#pt1 {
+    display: block;
+    float: left;
+    margin-right: 40px; 
+}
+
+#pt2 {
+    display: block;
+    float: left;
+}
+
+#foto-cont {
+	margin-top: 40px;
+	opacity: 0.4;
+}
+
+@media screen and (max-width: 950px) {	
+	body, html {overflow-y: inherit;}
+	#lista-de-paises {font-size: 30px;}
+	#bandeira {height: 250px;}
+	#lista-de-paises {left: 0;}
+}
