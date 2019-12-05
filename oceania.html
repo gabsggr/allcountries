@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang=pt-br>
+<head>
+	<title>All About Countries</title>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	<link rel="shortcut icon" href="icon.png" type="image/x-png"/>
+
+
+	<script
+	  src="https://code.jquery.com/jquery-3.4.1.min.js"
+	  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	  crossorigin="anonymous">
+	</script>
+	<script>
+		function chamarAPI() {
+			jQuery.getJSON('https://restcountries.eu/rest/v2/region/oceania', function(data) {
+				paises = data;
+
+				data.forEach(function(el) {
+					$('#lista-de-paises').append('<li><a href="#" onclick="dadosPais(\''+el.name+'\')">'+el.name+'</a></li>')
+				})
+			});
+		}
+
+		function dadosPais(name) {
+			jQuery.getJSON('https://restcountries.eu/rest/v2/name/'+name, 
+			function(data) {
+				console.log(data);
+				
+					data.forEach(function(el) {
+						let dados = '<div id="info" class="animated slow fadeInUp"><div id="pt1"><li><em> Name: </em> '+el.name+'</li><li> <em> Alpha-3 Code: </em> '+el.alpha3Code+'</li><li> <em> Calling code: </em> '+el.callingCodes+'</li><li><em>Capital: </em> '+el.capital+'</li><li> <em>Subregion: </em> '+el.subregion+'</li><li><em>Population:</em> '+el.population+'</li> </div> <div id="pt2"> <li><em>Latitude:</em> '+el.latlng[0]+'</li> <li><em>Longitude: </em> '+el.latlng[1]+'</li><li><em>Area: </em>'+el.area+' km²</li><li><em>Borders:</em> '+el.borders+'</li><li><em>Currency:</em> '+el.currencies[0].name+' ('+el.currencies[0].symbol+')</li><li><em>Language:</em> '+el.languages[0].name+'</li></div>';
+						
+						$('#lista-de-dados').empty();
+						$('#lista-de-dados').append ('<img id="bandeira" class="animated slow pulse" src="' +el.flag+ '"> ');
+						$('#lista-de-dados').append(dados);				
+					})
+				
+			});
+		}
+		
+
+		jQuery(document).ready(function() {
+			chamarAPI();
+		});
+</script>
+</head>
+<body>
+	<nav id="menu">
+		<a href="./index.html"><img src="./LOGO.png" id="img-logo" alt="logo"> </a>
+		<div id=navbar>
+			<ul>
+				<li><a href="./africa.html">Africa</a></li>
+				<li><a href="./americas.html">Americas</a></li>
+				<li><a href="./asia.html">Asia</a></li>
+				<li><a href="./europe.html">Europe</a></li>
+				<li><a style="color:#80cecb;" href="./oceania.html">Oceania</a></li>
+			</ul>
+		</div>
+	</nav>
+		<ul id="lista-de-paises"></ul>
+		
+		<ul id="lista-de-dados">
+		<img src="./img/oceania2.png" alt="continent oceania" id="foto-cont" width="60%">
+		</ul>
+</body>
+</html>
+
